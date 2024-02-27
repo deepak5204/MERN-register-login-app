@@ -1,9 +1,15 @@
 import './App.css';
 
+import HomePage from './components/home/home';
+import LoginPage from './components/login/login';
+import RegisterPage from './components/register/register';
+
 function App() {
   return (
     <div className="App">
-     hello world
+     <HomePage />
+     <LoginPage />
+     <RegisterPage />
     </div>
   );
 }
