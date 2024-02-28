@@ -1,9 +1,14 @@
 import React from 'react'
+import './home.css'
 
 const HomePage = () => {
 
     return(
-        <div>homepage</div>
+        <div className='homepage'>
+            <h1>hello homepage</h1>    
+
+            <div className='button'>Logout</div>
+        </div>
     )
 }
 
