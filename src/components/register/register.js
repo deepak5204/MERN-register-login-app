@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import './register.css'
 import axios  from 'axios';
+import {Link } from 'react-router-dom';
 
 const RegisterPage = () => {
 
@@ -40,7 +41,7 @@ const RegisterPage = () => {
 
             <div className='button' onClick={register}>Register</div>
             <div>or</div>
-            <div className='button'>Login</div>
+            <div className='button'><Link to='/login'>Login</Link></div>
         </div>
     )
 }

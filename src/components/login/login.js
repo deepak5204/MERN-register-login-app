@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import './login.css'
 import axios from 'axios';
+import {Link } from 'react-router-dom';
 
 const LoginPage = () => {
     
@@ -17,13 +18,14 @@ const LoginPage = () => {
         })
     }
 
-    const login = () => {
+    const login = ({setLoginUser}) => {
         const {email, password} = user;
 
         if(email && password){
             axios.post('http://localhost:4002/login', user)
             .then((res) => {
                 alert(res.data.message);
+                setLoginUser(res.data.user)
             })
         }
     }
@@ -37,7 +39,7 @@ const LoginPage = () => {
 
             <div className='button' onClick={login}>Login</div>
             <div>or</div>
-            <div className='button'>Register</div>
+            <div className='button'> <Link to="/register">Register</Link></div>
         </div>
     )
 }
