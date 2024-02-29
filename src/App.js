@@ -5,24 +5,40 @@ import './App.css';
 import HomePage from './components/home/home';
 import LoginPage from './components/login/login';
 import RegisterPage from './components/register/register';
+import NotFound from './components/notFound/notFound'
 
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 // import {Route} from 'react-router'
 
 
 function App() {
 
-  const [user, setLoginUser] = useState({})
+  const [user, setLoginUser] = useState({});
+
+  const router = createBrowserRouter([
+    {
+      
+      path: '/',
+      element: <HomePage />,
+      errorElement: <NotFound />
+    },
+    {
+      path: '/login',
+      element: <LoginPage setLoginUser={setLoginUser} />
+    },
+    {
+      path: '/register',
+      element: <RegisterPage />
+    }
+  ])
 
   return (
-   <Router>
-    <Routes>
-      <Route path='/login' element={<LoginPage  setUser={setLoginUser}/>} />
-      <Route exact path='/' element={<HomePage />} /> 
-      <Route path='/register' element={<RegisterPage /> } />  
-    </Routes>
-   </Router>
+    <React.StrictMode>
+    <RouterProvider router = {router} />
+   </React.StrictMode>
   )
 }
+
 
 export default App;
